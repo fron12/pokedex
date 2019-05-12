@@ -3,12 +3,18 @@ import './styles/PokeCell.css';
 
 const PokeCell = props => {
     return (
-        <button className="poke-cell">
+        <button 
+            className="poke-cell"
+            onClick={props.handleClick}
+            value={props.value}
+        >
             <img 
                 src={require(`../Pokemon/${props.pokemonSprite}.png`)} 
-                alt="sprite" 
+                alt={props.value}
             />
-            <p>{props.name}</p>
+            <p>
+                <strong>{props.pokemonName}</strong>
+            </p>
         </button>
     )
 }
