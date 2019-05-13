@@ -11,7 +11,8 @@ class App extends Component {
     pokemonListUrl: "https://pokeapi.co/api/v2/pokemon?offset0&limit=802",
     pokemonUrl: "https://pokeapi.co/api/v2/pokemon/",
     pokemon: [],
-    pokemonList: []
+    pokemonList: [],
+    filteredPokemon: []
   };
 
   componentDidMount() {
@@ -38,14 +39,32 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  handleChange = event => {
+    console.log(event.target.value);
+    const filterPokemon = this.state.pokemonList.filter(pokemon => {
+      if(pokemon.name.includes(event.target.value)){
+        return pokemon;
+      }
+      return null;
+    });
+    this.setState({filteredPokemon: filterPokemon});
+  }
+
   render() {
     return (
       <div className="App">
         <PokeList
+          handleChange={this.handleChange}
           handleClick={this.handleClick}
-          pokemonList={this.state.pokemonList}
+          pokemonList={
+            this.state.filteredPokemon.length > 0 ?
+            this.state.filteredPokemon :
+            this.state.pokemonList
+          }
         />
-        <DetailView pokemon={this.state.pokemon} />
+        <DetailView 
+          pokemon={this.state.pokemon} 
+        />
       </div>
     );
   }
