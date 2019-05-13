@@ -10,8 +10,10 @@ class App extends Component {
   state = {
     pokemonListUrl: "https://pokeapi.co/api/v2/pokemon?offset0&limit=802",
     pokemonUrl: "https://pokeapi.co/api/v2/pokemon/",
+    pokemonSpeciesUrl: "https://pokeapi.co/api/v2/pokemon-species/",
     pokemon: [],
     pokemonList: [],
+    pokemonDescription: '',
     filteredPokemon: []
   };
 
@@ -37,6 +39,13 @@ class App extends Component {
         console.log(this.state.pokemon);
       })
       .catch(err => console.log(err));
+    axios
+      .get(this.state.pokemonSpeciesUrl + `${event.currentTarget.value}`)
+      .then(res => {
+        this.setState({ pokemonDescription: res.data.flavor_text_entries[2].flavor_text })
+        console.log(res.data);
+      })
+      .catch(err => console.log(err))
   };
 
   handleChange = event => {
@@ -63,7 +72,8 @@ class App extends Component {
           }
         />
         <DetailView 
-          pokemon={this.state.pokemon} 
+          pokemon={this.state.pokemon}
+          description={this.state.pokemonDescription}
         />
       </div>
     );
