@@ -1,68 +1,92 @@
 .detail-view {
-    width: 50%;
-    max-height: 720px;
-    padding-bottom: 10px;
-    margin-right: 20px;
-    background-color: #df095e;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  width: 50%;
+  max-height: 720px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  background-color: #df095e;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  @media(max-width: 414px) {
-    .detail-view{
-      height: 500px;
-    }
-  }
+.sprite-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 510px;
+  margin: 10px auto;
+  background-color: #585858;
+  border: 15px solid #dedede;
+  border-radius: 5px;
+  color: #585858;
+}
 
-  @media(max-width: 375px) {
-    .detail-view{
-      height: 460px;
-    }
-  }
+.sprite-image {
+  width: 80%;
+  height: auto;
+}
 
-  @media(max-width: 320px) {
-    .detail-view{
-      height: 400px;
-    }
-  }
-  
-  .sprite-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 510px;
-    margin: 10px auto;
-    background-color: #585858;
-    border: 15px solid #DEDEDE;
-    border-radius: 5px;
-    color: #585858;
-  }
+.data-wrapper {
+  width: 80%;
+  height: 210px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #585858;
+  border-radius: 5px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
 
-  .sprite-image {
-    width: 80%;
-    height: auto;
+.data-name {
+  margin: 0 0 5px;
+}
+
+.data-char {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+  .description {
+    visibility: hidden;
   }
-  
-  .data-wrapper {
-    width: 80%;
-    height: 210px;
-    padding: 10px;
-    margin: 0 auto;
-    background-color: #585858;
-    border-radius: 5px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.22);
-    color: #FFF;
+}
+
+@media (max-width: 414px) {
+  .detail-view {
+    height: 500px;
   }
-  
   .data-name {
-    margin: 0 0 5px;
+    font-size: 15px;
   }
-  
   .data-char {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 15px;
   }
+}
+
+@media (max-width: 375px) {
+  .detail-view {
+    height: 460px;
+  }
+  .data-name {
+    font-size: 15px;
+  }
+  .data-char {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .detail-view {
+    height: 400px;
+  }
+  .data-name {
+    font-size: 12px;
+  }
+  .data-char {
+    font-size: 12px;
+  }
+}
