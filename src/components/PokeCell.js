@@ -9,10 +9,11 @@ const PokeCell = props => {
             value={props.value}
         >
             <img 
+                className="poke-sprite"
                 src={require(`../Pokemon/${props.pokemonSprite}.png`)} 
                 alt={props.value}
             />
-            <p>
+            <p className="poke-name">
                 <strong>{props.pokemonName}</strong>
             </p>
         </button>
