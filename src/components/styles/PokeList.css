@@ -16,35 +16,36 @@
 .poke-filter {
   position: absolute;
   top: 150px;
+  background: rgb(207, 207, 205);
 }
 
-@media(max-width: 605px) {
+@media (max-width: 605px) {
   .poke-filter {
     width: 80px;
   }
 }
 
-@media(max-width: 414px) {
-  .poke-list{
+@media (max-width: 414px) {
+  .poke-list {
     height: 500px;
   }
   .poke-filter {
-    top : 135px;
+    top: 135px;
   }
 }
 
-@media(max-width: 375px) {
-  .poke-list{
+@media (max-width: 375px) {
+  .poke-list {
     height: 460px;
   }
-  .poke-filter{
+  .poke-filter {
     top: 115px;
     width: 60px;
   }
 }
 
-@media(max-width: 320px) {
-  .poke-list{
+@media (max-width: 320px) {
+  .poke-list {
     height: 400px;
   }
 }
@@ -54,13 +55,13 @@
 }
 
 .poke-list::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 .poke-list::-webkit-scrollbar-thumb {
-  background: rgb(91, 98, 160); 
+  background: rgb(91, 98, 160);
 }
 
 .poke-list::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
