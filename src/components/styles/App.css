@@ -6,25 +6,25 @@
   height: 850px;
   padding-left: 10px;
   margin: 50px auto;
-  background-color: #FE0065;
+  background-color: #fe0065;
   border-radius: 10px;
   box-shadow: 0 14px 45px rgba(0, 0, 0, 0.22), 0 18px 45px rgba(0, 0, 0, 0.22);
 }
 
-@media(max-width: 414px) {
-  .App{
+@media (max-width: 414px) {
+  .App {
     height: 600px;
   }
 }
 
-@media(max-width: 375px) {
-  .App{
+@media (max-width: 375px) {
+  .App {
     height: 520px;
   }
 }
 
-@media(max-width: 320px) {
-  .App{
+@media (max-width: 320px) {
+  .App {
     height: 450px;
   }
 }
