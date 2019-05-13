@@ -13,7 +13,7 @@ class App extends Component {
     pokemonSpeciesUrl: "https://pokeapi.co/api/v2/pokemon-species/",
     pokemon: [],
     pokemonList: [],
-    pokemonDescription: '',
+    pokemonDescription: "",
     filteredPokemon: []
   };
 
@@ -26,7 +26,6 @@ class App extends Component {
       .get(this.state.pokemonListUrl)
       .then(res => {
         this.setState({ pokemonList: res.data.results });
-        console.log(res.data.results);
       })
       .catch(err => console.log("Error: ", err));
   };
@@ -36,28 +35,35 @@ class App extends Component {
       .get(this.state.pokemonUrl + `${event.currentTarget.value}`)
       .then(res => {
         this.setState({ pokemon: new Pokemon(res.data) });
-        console.log(this.state.pokemon);
       })
       .catch(err => console.log(err));
     axios
       .get(this.state.pokemonSpeciesUrl + `${event.currentTarget.value}`)
       .then(res => {
-        this.setState({ pokemonDescription: res.data.flavor_text_entries[2].flavor_text })
-        console.log(res.data);
+        const flavor_text_entries = res.data.flavor_text_entries; // Is an array
+        let englishText = flavor_text_entries.filter(text => {
+          if (text.language.name === "en") {
+            return text.flavor_text;
+          }
+          return null;
+        });
+        this.setState({
+          pokemonDescription: englishText[0].flavor_text
+        });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   };
 
   handleChange = event => {
     console.log(event.target.value);
     const filterPokemon = this.state.pokemonList.filter(pokemon => {
-      if(pokemon.name.includes(event.target.value)){
+      if (pokemon.name.includes(event.target.value)) {
         return pokemon;
       }
       return null;
     });
-    this.setState({filteredPokemon: filterPokemon});
-  }
+    this.setState({ filteredPokemon: filterPokemon });
+  };
 
   render() {
     return (
@@ -66,12 +72,12 @@ class App extends Component {
           handleChange={this.handleChange}
           handleClick={this.handleClick}
           pokemonList={
-            this.state.filteredPokemon.length > 0 ?
-            this.state.filteredPokemon :
-            this.state.pokemonList
+            this.state.filteredPokemon.length > 0
+              ? this.state.filteredPokemon
+              : this.state.pokemonList
           }
         />
-        <DetailView 
+        <DetailView
           pokemon={this.state.pokemon}
           description={this.state.pokemonDescription}
         />
