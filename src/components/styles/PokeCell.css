@@ -12,3 +12,48 @@
 .poke-cell:hover {
   cursor: pointer;
 }
+
+.poke-sprite {
+  width: 100px;
+}
+
+@media(max-width: 414px) {
+  .poke-cell{
+    height: 120px;
+  }
+  .poke-sprite {
+    margin-bottom: -12px;
+  }
+  .poke-name {
+    font-size: 10px;
+  }
+}
+
+@media(max-width: 375px) {
+  .poke-cell{
+    height: 120px;
+  }
+  .poke-sprite {
+    margin-bottom: -12px;
+  }
+  .poke-name {
+    font-size: 10px;
+  }
+}
+
+@media(max-width: 360px) {
+  .poke-cell {
+    width: 100px;
+    height: 100px;
+  }
+  .poke-sprite {
+    width: 60px;
+  }
+}
+
+@media(max-width: 320px) {
+  .poke-sprite {
+    width: 70px;
+    margin-bottom: -7px;
+  }
+}
