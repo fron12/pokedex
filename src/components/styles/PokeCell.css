@@ -17,8 +17,8 @@
   width: 100px;
 }
 
-@media(max-width: 414px) {
-  .poke-cell{
+@media (max-width: 414px) {
+  .poke-cell {
     height: 120px;
   }
   .poke-sprite {
@@ -29,8 +29,8 @@
   }
 }
 
-@media(max-width: 375px) {
-  .poke-cell{
+@media (max-width: 375px) {
+  .poke-cell {
     height: 120px;
   }
   .poke-sprite {
@@ -41,17 +41,18 @@
   }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
   .poke-cell {
     width: 100px;
     height: 100px;
   }
   .poke-sprite {
     width: 60px;
+    margin-bottom: 10px;
   }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
   .poke-sprite {
     width: 70px;
     margin-bottom: -7px;
