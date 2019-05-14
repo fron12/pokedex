@@ -22,12 +22,24 @@ class App extends Component {
   }
 
   getPokemon = () => {
-    axios
-      .get(this.state.pokemonListUrl)
-      .then(res => {
-        this.setState({ pokemonList: res.data.results });
-      })
-      .catch(err => console.log("Error: ", err));
+    axios.get(this.state.pokemonListUrl).then(res => {
+      this.setState({ pokemonList: res.data.results });
+    });
+    axios.get(this.state.pokemonUrl + "ditto").then(res => {
+      this.setState({ pokemon: new Pokemon(res.data) });
+    });
+    axios.get(this.state.pokemonSpeciesUrl + "ditto").then(res => {
+      const flavor_text_entries = res.data.flavor_text_entries;
+      let englishText = flavor_text_entries.filter(text => {
+        if (text.language.name === "en") {
+          return text.flavor_text;
+        }
+        return null;
+      });
+      this.setState({
+        pokemonDescription: englishText[0].flavor_text
+      });
+    });
   };
 
   handleClick = event => {
@@ -35,8 +47,7 @@ class App extends Component {
       .get(this.state.pokemonUrl + `${event.currentTarget.value}`)
       .then(res => {
         this.setState({ pokemon: new Pokemon(res.data) });
-      })
-      .catch(err => console.log(err));
+      });
     axios
       .get(this.state.pokemonSpeciesUrl + `${event.currentTarget.value}`)
       .then(res => {
@@ -50,8 +61,7 @@ class App extends Component {
         this.setState({
           pokemonDescription: englishText[0].flavor_text
         });
-      })
-      .catch(err => console.log(err));
+      });
   };
 
   handleChange = event => {
