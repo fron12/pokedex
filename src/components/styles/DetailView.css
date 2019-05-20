@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 95%;
   height: 510px;
   margin: 10px auto;
   background-color: #585858;
@@ -25,12 +25,12 @@
 }
 
 .sprite-image {
-  width: 80%;
+  width: 60%;
   height: auto;
 }
 
 .data-wrapper {
-  width: 80%;
+  width: 95%;
   height: 210px;
   padding: 10px;
   margin: 0 auto;
